@@ -1,5 +1,6 @@
 body {
     background-color: rgb(219, 22, 147);
+    font-family: 'Fjalla One', sans-serif;
 }
 button {
     height: 45px;
@@ -10,7 +11,12 @@ button {
     border-width: 3px;
     margin-right: 5%;
     margin-left: 5%;
+    font-family: 'Fjalla One', sans-serif;
 }
 h1 {
     font-size: 55px;
+}
+header {
+    font-size: 55px;
+    background-color: rgb(9, 244, 236);
 }
