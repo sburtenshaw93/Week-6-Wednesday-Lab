@@ -19,4 +19,10 @@ h1 {
 header {
     font-size: 55px;
     background-color: rgb(9, 244, 236);
+
+}
+#michaelscott {
+    border-radius: 10px;
+    height: 50%;
+    width: 50%;
 }
