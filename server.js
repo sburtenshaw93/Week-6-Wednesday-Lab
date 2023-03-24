@@ -16,6 +16,41 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
+const quote = []
+
+app.get('/', (req, res) => {
+    res.status(200).send(quote)
+})
+
+app.post('/api/quote', (req, res) => {
+    let {michaelScottQuotes} = req.body
+    const index = quote.findIndex(msQuote => {
+        return msQuote === michaelScottQuotes
+    })
+    try {
+        if (index === -1 && michaelScottQuotes !== '') {
+            quote.push(michaelScottQuotes)
+
+            res.status(200).send(quote)
+        } else if (michaelScottQuotes === '') {
+
+            res.status(400).send('You must enter a quote')
+        } else {
+
+            res.status(400).send('That quote already exists!')
+        }
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+app.delete('/api/quote/:index', (req, res) => {
+    const targetIndex = +req.params.index
+    let deleteQuote = quote.splice(targetIndex, 1)
+
+    res.status(200).send(quote)
+})
+
 app.listen(4000, () => {
     console.log('Server up and running on 4000')
 })

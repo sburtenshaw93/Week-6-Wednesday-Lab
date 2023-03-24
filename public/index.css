@@ -26,3 +26,11 @@ header {
     height: 50%;
     width: 50%;
 }
+#quoteentry {
+    height: 55px;
+    width: 350px;
+    border-radius: 10px;
+    border-color: black;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
