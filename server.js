@@ -34,10 +34,10 @@ app.post('/api/quote', (req, res) => {
 
             res.status(200).send(quote)
         } else if (michaelScottQuotes === '') {
-
+            rollbar.info('user didnt enter quote')
             res.status(400).send('You must enter a quote')
         } else {
-
+            rollbar.error('same quote added')
             res.status(400).send('That quote already exists!')
         }
     } catch (err) {
