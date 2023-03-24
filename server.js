@@ -1,8 +1,9 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
+app.use(cors());
 app.use(express.json())
-
 app.use(express.static(`${__dirname}/public`))
 
 // include and initialize the rollbar library with your access token
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/quote', (req, res) => {
-    let {michaelScottQuotes} = req.body
+    let {michaelScottQuotes} = req.body;
     const index = quote.findIndex(msQuote => {
         return msQuote === michaelScottQuotes
     })
